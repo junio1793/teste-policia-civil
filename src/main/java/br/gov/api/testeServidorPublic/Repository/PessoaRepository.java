@@ -1,4 +1,4 @@
-package br.gov.api.testeServidorPublic.CidadeRepository;
+package br.gov.api.testeServidorPublic.Repository;
 
 import java.util.Optional;
 
