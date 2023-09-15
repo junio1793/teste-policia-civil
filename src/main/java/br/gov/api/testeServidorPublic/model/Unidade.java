@@ -17,15 +17,9 @@ public class Unidade implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long unid_id;
-	private String unid_nome;
-	private String unid_sigla;
-
-	@ManyToMany
-	@JoinTable(
-			name = "unidade_endereco",
-			joinColumns = @JoinColumn(name = "id_unidade" ),
-			inverseJoinColumns = @JoinColumn(name="id_endereco")
-	)
-	private List<Endereco> enderecoList;
+	private Long id;
+	@Column(name="unid_nome")
+	private String nome;
+	@Column(name="unid_sigla")
+	private String sigla;
 }

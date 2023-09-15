@@ -16,9 +16,12 @@ public class Lotacao {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long lot_id;
-	private Date lot_data_lotacao;
-	private Date lot_data_remocao;
-	private String lot_portaria;
+	@Column(name="lot_data_lotacao")
+	private Date ataLotacao;
+	@Column(name="lot_data_remocao")
+	private Date dataRemocao;
+	@Column(name = "lot_portaria")
+	private String portaria;
 
 	@OneToOne
 	@JoinColumn(name = "id_pessoa")

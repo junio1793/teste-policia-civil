@@ -31,74 +31,7 @@ public class Pessoa implements Serializable {
 	@Column(name="pes_mae")
 	private String mae;
 
-	@ManyToMany
-	@JoinTable(
-			name = "pessoa_endereco",
-			joinColumns = @JoinColumn(name ="id_pessoa"),
-			inverseJoinColumns = @JoinColumn(name = "id_endereco")
-	)
-	private List<Endereco> enderecos = new ArrayList<>();
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public Date getDataNascimento() {
-		return dataNascimento;
-	}
-
-	public void setDataNascimento(Date dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
-
-	public String getSexo() {
-		return sexo;
-	}
-
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
-
-	public String getPai() {
-		return pai;
-	}
-
-	public void setPai(String pai) {
-		this.pai = pai;
-	}
-
-	public String getMae() {
-		return mae;
-	}
-
-	public void setMae(String mae) {
-		this.mae = mae;
-	}
-
-	public List<Endereco> getEnderecos() {
-		return enderecos;
-	}
-
-	public void setEnderecos(List<Endereco> enderecos) {
-		this.enderecos = enderecos;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
-	
+	@OneToOne(mappedBy = "pessoa")
+	private PessoaEndereco pessoaEndereco;
 
 }

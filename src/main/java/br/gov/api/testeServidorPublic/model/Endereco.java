@@ -17,12 +17,15 @@ public class Endereco implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long end_id;
-	private String end_tipo_logradouro;
-	private String end_logradouro;
-	private String end_numero;
-	private String pes_bairro;
+	@Column(name="end_tipo_logradouro")
+	private String tipoLogradouro;
+	@Column(name="end_logradouro")
+	private String logradouro;
+	@Column(name="end_numero")
+	private String numero;
+	@Column(name="end_bairro")
+	private String bairro;
 
-	@OneToOne
-	@JoinColumn(name="id_cidade")
-	private Cidade cidade;
+	@OneToOne(mappedBy = "endereco")
+	private PessoaEndereco pessoaEndereco;
 }

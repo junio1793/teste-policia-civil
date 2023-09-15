@@ -32,7 +32,7 @@ public class PessoaService {
 
 	@Transactional
 	public Pessoa newPessoa(Pessoa newPessoa) throws PessoaException {
-		if (!pessoaRepository.getNomePessoa(newPessoa.getNome()).isPresent()) {
+		if (!pessoaRepository.findByNome(newPessoa.getNome()).isPresent()) {
 			return pessoaRepository.save(newPessoa);
 		} else {
 			throw new PessoaException("O nome da pessoa já existe: " + newPessoa.getNome());

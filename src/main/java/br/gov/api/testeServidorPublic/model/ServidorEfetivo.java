@@ -17,7 +17,4 @@ public class ServidorEfetivo {
 	private String se_matricula;
 
 
-	@OneToOne
-	@JoinColumn(name = "id_pessoa")
-	private Pessoa pessoa;
 }
