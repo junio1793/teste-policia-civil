@@ -1,20 +1,16 @@
 package br.gov.api.testeServidorPublic.model;
 
 import java.io.Serializable;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@EqualsAndHashCode
 public class Endereco implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -25,6 +21,8 @@ public class Endereco implements Serializable {
 	private String end_logradouro;
 	private String end_numero;
 	private String pes_bairro;
-	
+
+	@OneToOne
+	@JoinColumn(name="id_cidade")
 	private Cidade cidade;
 }

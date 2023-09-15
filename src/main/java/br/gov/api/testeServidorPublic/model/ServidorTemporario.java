@@ -2,27 +2,25 @@ package br.gov.api.testeServidorPublic.model;
 
 import java.sql.Date;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@EqualsAndHashCode
 public class ServidorTemporario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long st_id;
-	private Pessoa pessoa;
 	private Date st_admissao;
 	private Date st_demissao;
+
+	@OneToOne
+	@JoinColumn(name = "id_pessoa")
+	private Pessoa pessoa;
 
 }

@@ -2,20 +2,15 @@ package br.gov.api.testeServidorPublic.model;
 
 import java.sql.Date;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@EqualsAndHashCode
 public class Lotacao {
 
 	@Id
@@ -24,7 +19,12 @@ public class Lotacao {
 	private Date lot_data_lotacao;
 	private Date lot_data_remocao;
 	private String lot_portaria;
+
+	@OneToOne
+	@JoinColumn(name = "id_pessoa")
 	private Pessoa pessoa;
+	@OneToOne
+	@JoinColumn(name = "id_unidade")
 	private Unidade unidade;
 	
 }

@@ -1,21 +1,17 @@
 package br.gov.api.testeServidorPublic.model;
 
 import java.io.Serializable;
+import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@EqualsAndHashCode
 public class Unidade implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -24,4 +20,12 @@ public class Unidade implements Serializable{
 	private Long unid_id;
 	private String unid_nome;
 	private String unid_sigla;
+
+	@ManyToMany
+	@JoinTable(
+			name = "unidade_endereco",
+			joinColumns = @JoinColumn(name = "id_unidade" ),
+			inverseJoinColumns = @JoinColumn(name="id_endereco")
+	)
+	private List<Endereco> enderecoList;
 }
