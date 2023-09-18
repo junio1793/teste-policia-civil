@@ -1,4 +1,4 @@
-package br.gov.api.testeServidorPublic.service;
+package br.gov.api.TesteServidorPublico.Service;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,9 +7,9 @@ import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.gov.api.testeServidorPublic.Repository.PessoaRepository;
-import br.gov.api.testeServidorPublic.model.Pessoa;
-import br.gov.api.testeServidorPublic.service.exception.PessoaException;
+import br.gov.api.TesteServidorPublico.Repository.PessoaRepository;
+import br.gov.api.TesteServidorPublico.Model.Pessoa;
+import br.gov.api.TesteServidorPublico.Service.exception.PessoaException;
 import jakarta.transaction.Transactional;
 
 @Service

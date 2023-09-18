@@ -1,4 +1,4 @@
-package br.gov.api.testeServidorPublic.model;
+package br.gov.api.TesteServidorPublico.Model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,24 +6,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Table(name="pessoa_endereco")
-public class PessoaEndereco {
+@Table(name="unidade_endereco")
+public class UnidadeEndereco {
 
-	@EmbeddedId
+	@Id
 	@OneToOne
-	@JoinColumn(name="pessoa_id")
-	private Pessoa pessoa;
+	@JoinColumn(name="unidade_id")
+	private Unidade unidade;
 
 	@OneToOne
 	@JoinColumn(name="endereco_id")
 	private Endereco endereco;
-
 }

@@ -1,7 +1,6 @@
-package br.gov.api.testeServidorPublic.model;
+package br.gov.api.TesteServidorPublico.Model;
 
 import java.io.Serializable;
-import java.util.List;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -18,8 +17,15 @@ public class Unidade implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
 	@Column(name="unid_nome")
 	private String nome;
+
 	@Column(name="unid_sigla")
 	private String sigla;
+
+	@OneToOne(mappedBy = "unidade")
+	private Lotacao  lotacao;
+
+
 }

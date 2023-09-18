@@ -1,4 +1,4 @@
-package br.gov.api.testeServidorPublic.service;
+package br.gov.api.TesteServidorPublico.Service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,10 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.gov.api.testeServidorPublic.Repository.CidadeRepository;
-import br.gov.api.testeServidorPublic.model.Cidade;
-import br.gov.api.testeServidorPublic.model.Pessoa;
-import br.gov.api.testeServidorPublic.service.exception.CidadeException;
+import br.gov.api.TesteServidorPublico.Repository.CidadeRepository;
+import br.gov.api.TesteServidorPublico.Model.Cidade;
+import br.gov.api.TesteServidorPublico.Service.exception.CidadeException;
 import jakarta.transaction.Transactional;
 
 @Service

@@ -1,4 +1,4 @@
-package br.gov.api.testeServidorPublic.controller;
+package br.gov.api.TesteServidorPublico.Controller;
 
 import java.util.List;
 
@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import br.gov.api.testeServidorPublic.model.Pessoa;
-import br.gov.api.testeServidorPublic.service.PessoaService;
-import br.gov.api.testeServidorPublic.service.exception.PessoaException;
+import br.gov.api.TesteServidorPublico.Model.Pessoa;
+import br.gov.api.TesteServidorPublico.Service.PessoaService;
+import br.gov.api.TesteServidorPublico.Service.exception.PessoaException;
 
 @RestController
 @RequestMapping

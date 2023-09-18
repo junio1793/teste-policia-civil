@@ -1,4 +1,4 @@
-package br.gov.api.testeServidorPublic.model;
+package br.gov.api.TesteServidorPublico.Model;
 
 import java.io.Serializable;
 import java.sql.Date;
@@ -33,5 +33,18 @@ public class Pessoa implements Serializable {
 
 	@OneToOne(mappedBy = "pessoa")
 	private PessoaEndereco pessoaEndereco;
+
+	@OneToMany(mappedBy = "pessoa")
+	private List<FotoPessoa> fotoPessoa  = new ArrayList<>();
+
+	@OneToOne(mappedBy = "pessoa")
+	private ServidorTemporario servidorTemporario;
+
+	@OneToOne(mappedBy = "pessoa")
+	private ServidorEfetivo servidorEfetivo;
+
+	@OneToOne(mappedBy="pessoa")
+	private Lotacao lotacao;
+
 
 }

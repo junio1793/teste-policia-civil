@@ -1,6 +1,8 @@
-package br.gov.api.testeServidorPublic.model;
+package br.gov.api.TesteServidorPublico.Model;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -25,7 +27,7 @@ public class Lotacao {
 
 	@OneToOne
 	@JoinColumn(name = "id_pessoa")
-	private Pessoa pessoa;
+	private Pessoa pessoa ;
 	@OneToOne
 	@JoinColumn(name = "id_unidade")
 	private Unidade unidade;

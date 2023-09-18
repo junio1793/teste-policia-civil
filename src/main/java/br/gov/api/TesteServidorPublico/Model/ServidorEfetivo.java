@@ -1,4 +1,4 @@
-package br.gov.api.testeServidorPublic.model;
+package br.gov.api.TesteServidorPublico.Model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -16,5 +16,8 @@ public class ServidorEfetivo {
 	private Long se_id;
 	private String se_matricula;
 
+	@OneToOne
+	@JoinColumn(name = "id_pessoa")
+	private Pessoa pessoa;
 
 }

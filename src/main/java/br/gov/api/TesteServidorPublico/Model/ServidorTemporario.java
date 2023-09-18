@@ -1,8 +1,7 @@
-package br.gov.api.testeServidorPublic.model;
+package br.gov.api.TesteServidorPublico.Model;
 
+import java.io.Serializable;
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -13,7 +12,8 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class ServidorTemporario {
+public class ServidorTemporario implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class ServidorTemporario {
 	private Date admissao;
 	@Column(name="st_demissao")
 	private Date demissao;
-	@OneToMany
+	@OneToOne
 	@JoinColumn(name = "id_pessoa")
-	private List<Pessoa> pessoa = new ArrayList<>();
+	private Pessoa pessoa ;
 }

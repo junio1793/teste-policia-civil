@@ -1,4 +1,4 @@
-package br.gov.api.testeServidorPublic.service.exception;
+package br.gov.api.TesteServidorPublico.Service.exception;
 
 public class CidadeException extends Exception {
 	private static final long serialVersionUID = 1L;

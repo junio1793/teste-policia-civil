@@ -1,4 +1,4 @@
-package br.gov.api.testeServidorPublic.model;
+package br.gov.api.TesteServidorPublico.Model;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package br.gov.api.testeServidorPublic.model;
+package br.gov.api.TesteServidorPublico.Model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,15 +11,16 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Table(name="unidade_endereco")
-public class UnidadeEndereco {
+@Table(name="pessoa_endereco")
+public class PessoaEndereco {
 
 	@Id
 	@OneToOne
-	@JoinColumn(name="unidade_id")
-	private Unidade unidade;
+	@JoinColumn(name="pessoa_id")
+	private Pessoa pessoa;
 
 	@OneToOne
 	@JoinColumn(name="endereco_id")
 	private Endereco endereco;
+
 }

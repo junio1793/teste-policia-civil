@@ -1,4 +1,4 @@
-package br.gov.api.testeServidorPublic.model;
+package br.gov.api.TesteServidorPublico.Model;
 
 import java.io.Serializable;
 
@@ -28,4 +28,8 @@ public class Endereco implements Serializable {
 
 	@OneToOne(mappedBy = "endereco")
 	private PessoaEndereco pessoaEndereco;
+
+	@ManyToOne
+	@JoinColumn(name = "id_cidade")
+	private Cidade cidade;
 }
