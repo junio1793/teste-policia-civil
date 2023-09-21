@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import lombok.*;
 
 @Entity
@@ -25,4 +27,5 @@ public class Cidade implements Serializable {
 	private String nome;
 	@Column(name="cid_uf")
 	private String uf;
+	
 }

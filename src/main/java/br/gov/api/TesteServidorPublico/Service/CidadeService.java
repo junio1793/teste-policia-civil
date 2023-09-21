@@ -18,15 +18,16 @@ public class CidadeService {
 	private CidadeRepository cidadeRepository;
 
 	@Transactional
-	public List<Cidade> getAllCIdades() {
+	public List<Cidade> getCidades() {
 		List<Cidade> lista = cidadeRepository.findAll();
 		return lista;
 	}
-	
-	public Cidade findById(Long id) throws CidadeException {
+
+	@Transactional
+	public Cidade getById(Long id) throws CidadeException {
 		Optional<Cidade> cidade = cidadeRepository.findById(id);
-		if(!cidade.isPresent()) {
-			 throw new CidadeException("cidade nao existe! id: "  + id) ;
+		if (!cidade.isPresent()) {
+			throw new CidadeException("cidade nao existe! id: " + id);
 		}
 		return cidade.get();
 	}
@@ -38,5 +39,15 @@ public class CidadeService {
 		}
 		return cidadeRepository.save(newCidade);
 	}
-	
+
+	public Cidade putCidade(Long id, Cidade newCidade) {
+		Optional<Cidade> cidade = cidadeRepository.findById(id);
+		if (cidade.isPresent()) {
+			Cidade cidadeSave = new Cidade(null, newCidade.getNome(), newCidade.getUf());
+			return cidadeSave;
+		}
+		Cidade cidadeSave = cidadeRepository.save(newCidade);
+		return cidadeSave;
+	}
+
 }

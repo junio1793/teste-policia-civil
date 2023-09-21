@@ -3,6 +3,7 @@ package br.gov.api.TesteServidorPublico.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +21,7 @@ public class PessoaController {
 	private PessoaService pessoaService;
 
 	@GetMapping("/api/pessoas")
-	public List<Pessoa> getAll() {
+	public List<Pessoa> getAll(Pageable pageable) {
 		return pessoaService.getPessoa();
 	}
 

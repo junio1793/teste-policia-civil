@@ -13,8 +13,9 @@ public class ServidorEfetivo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long se_id;
-	private String se_matricula;
+	private Long id;
+	@Column(name="se_matricula")
+	private String matricula;
 
 	@OneToOne
 	@JoinColumn(name = "id_pessoa")
