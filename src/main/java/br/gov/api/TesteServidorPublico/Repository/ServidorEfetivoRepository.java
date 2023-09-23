@@ -11,6 +11,7 @@ import br.gov.api.TesteServidorPublico.Model.ServidorEfetivo;
 @Repository
 public interface ServidorEfetivoRepository extends JpaRepository<ServidorEfetivo, Long> {
 
+	Optional<ServidorEfetivo> findByMatricula(String matricula);
 
 	Optional<ServidorEfetivo> findByMatriculaAndPessoa(String matricula, Pessoa pessoa);
 

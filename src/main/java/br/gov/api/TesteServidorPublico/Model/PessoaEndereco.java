@@ -19,6 +19,7 @@ public class PessoaEndereco {
 	@JoinColumn(name="pessoa_id")
 	private Pessoa pessoa;
 
+	@Id
 	@OneToOne
 	@JoinColumn(name="endereco_id")
 	private Endereco endereco;

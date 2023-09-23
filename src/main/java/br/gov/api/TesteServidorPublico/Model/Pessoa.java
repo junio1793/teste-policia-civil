@@ -5,6 +5,8 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,14 +22,22 @@ public class Pessoa implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	@Column(name="pes_nome")
 	private String nome;
+	
+	
+	@Temporal(TemporalType.DATE)
 	@Column(name="pes_data_nasc")
 	private Date dataNascimento;
+	
+	
 	@Column(name="pes_sexo")
 	private String sexo;
+	
 	@Column(name="pes_pai")
 	private String pai;
+	
 	@Column(name="pes_mae")
 	private String mae;
 
