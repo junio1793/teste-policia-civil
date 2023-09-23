@@ -7,20 +7,21 @@ import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.gov.api.TesteServidorPublico.Model.Pessoa;
 import br.gov.api.TesteServidorPublico.Model.ServidorEfetivo;
+import br.gov.api.TesteServidorPublico.Repository.PessoaRepository;
 import br.gov.api.TesteServidorPublico.Repository.ServidorEfetivoRepository;
 import br.gov.api.TesteServidorPublico.Service.exception.ServidorEfetivoAlredyExists;
 import br.gov.api.TesteServidorPublico.modelDTO.ServidorEfetivoDTO;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 
 @Service
 public class ServidorEfetivoService {
 	@Autowired
 	private ServidorEfetivoRepository efetivoRepository;
-
+	
 	@PersistenceContext
 	private EntityManager entityManager;
 
@@ -39,11 +40,14 @@ public class ServidorEfetivoService {
 
 	@Transactional
 	public ServidorEfetivo save(ServidorEfetivo efetivo) throws ServidorEfetivoAlredyExists {
-		if (efetivoRepository.findByMatricula(efetivo.getMatricula()).isPresent()) {
-			throw new ServidorEfetivoAlredyExists(
-					"servidor ja existe no sistema! matricula -> " + efetivo.getMatricula() + efetivo.getPessoa());
-		}
-		return efetivoRepository.save(efetivo);
+		Optional<ServidorEfetivo> existingEfetivo = efetivoRepository.findByMatricula(efetivo.getMatricula());
+	    
+	    if (existingEfetivo.isPresent()) {
+	        throw new ServidorEfetivoAlredyExists(
+	            "Servidor já existe no sistema! Matrícula -> " + efetivo.getMatricula() + ", Pessoa -> ");
+	    }
+	    
+	    return efetivoRepository.save(efetivo);
 	}
 
 	@Transactional
@@ -58,5 +62,11 @@ public class ServidorEfetivoService {
 		return efetivoRepository.save(efetivo);
 	}
 	
+	public List<ServidorEfetivo> listarServidorAndPessoasVinculadas(String matricula){
+		return efetivoRepository.listarServidorAndPessoasVinculadas(matricula);
+	}
+	
+    public void salvarServidorEfetivoComPessoa() throws ServidorEfetivoAlredyExists {
 
+    }
 }

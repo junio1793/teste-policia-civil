@@ -2,9 +2,6 @@ package br.gov.api.TesteServidorPublico.Model;
 
 import java.io.Serializable;
 import java.sql.Date;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -28,7 +25,6 @@ public class ServidorTemporario implements Serializable {
 	
 	@Column(name="st_demissao")
 	private Date demissao;
-	
 	
 	@OneToOne
 	@JoinColumn(name = "id_pessoa")

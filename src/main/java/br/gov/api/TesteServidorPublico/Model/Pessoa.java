@@ -50,9 +50,6 @@ public class Pessoa implements Serializable {
 	@OneToOne(mappedBy = "pessoa")
 	private ServidorTemporario servidorTemporario;
 
-	@OneToOne(mappedBy = "pessoa")
-	private ServidorEfetivo servidorEfetivo;
-
 	@OneToOne(mappedBy="pessoa")
 	private Lotacao lotacao;
 
