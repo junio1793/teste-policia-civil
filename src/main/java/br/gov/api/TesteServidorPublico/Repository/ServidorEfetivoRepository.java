@@ -22,5 +22,9 @@ public interface ServidorEfetivoRepository extends JpaRepository<ServidorEfetivo
 			+ "INNER JOIN se.pessoa p "
 			+ "WHERE se.matricula = :matricula")
 	List<ServidorEfetivo> listarServidorAndPessoasVinculadas(@Param("matricula") String matricula);
+	
+	@Query("SELECT se FROM ServidorEfetivo se "
+			+ "INNER JOIN se.pessoa p ")
+	List<ServidorEfetivo> listarServidorAndPessoasVinculadasAll();
 
 }

@@ -43,11 +43,8 @@ public class PessoaController {
 		return pessoaService.getPessoaByNome(nome, nomaDaMae);
 	}
 
-	@PostMapping("/salvarPessoa")
-	public Pessoa save(@RequestBody Pessoa newPessoa) throws PessoaException {
-		return pessoaService.newPessoa(newPessoa);
+	@PostMapping(value = "/salvar")
+	public Pessoa save(@RequestBody Pessoa novaPeople) throws PessoaException {
+		return pessoaService.newPessoa(novaPeople);
 	}
-	
-	
-
 }

@@ -37,14 +37,26 @@ public class ServidorEfetivoController {
 		return efetivoService.listEfetivoDTO();
 	}
 	
-	@GetMapping("/ServidorAndPessoaVinculada")
-	public List<ServidorEfetivo> getServidorAndPessoaVinculada(@RequestParam String matricula){
-		return efetivoService.listarServidorAndPessoasVinculadas(matricula);
+	@GetMapping("/ServidorAndPessoaVinculada/{matricula}")
+	public ResponseEntity<List<ServidorEfetivo>> getServidorAndPessoaVinculada(@PathVariable String matricula){
+		List<ServidorEfetivo> result = efetivoService.listarServidorAndPessoasVinculadas(matricula);
+		return ResponseEntity.ok().body(result);
+	}
+	
+	@GetMapping("/ServidorAndPessoaVinculadaAll")
+	public ResponseEntity<List<ServidorEfetivo>> getServidorAndPessoaVinculada(){
+		List<ServidorEfetivo> result = efetivoService.listarServidorAndPessoasVinculadasAll();
+		return ResponseEntity.ok().body(result);
 	}
 	
 	@PostMapping("/saveServidorEfetivo")
 	public ServidorEfetivo post(@RequestBody ServidorEfetivo efetivo ) throws ServidorEfetivoAlredyExists {
 		return efetivoService.save(efetivo);
+	}
+	
+	@PostMapping("/saveServidorEfetivoPessoa")
+	public void postMap(@RequestBody String request) {
+		efetivoService.saveServidorEfetivo(request);
 	}
 	
 	@PutMapping("/putServidorEfetivo/{id}")
